@@ -1,0 +1,31 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 12345678
+    volumes:
+      - /var/pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - crud-example-network
+  api:
+    container_name: spring-boot
+    image: crud-example-api
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports: 
+      - 8080:8080
+    depends_on:
+      - postgres
+    networks:
+      - crud-example-network
+networks:
+  crud-example-network:
+    driver: bridge
