@@ -1,6 +1,7 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>Products</mat-card-title>
+        <button mat-flat-button color="primary" [routerLink]="['new']">Add Product</button>
     </mat-card-header>
     <mat-card-content>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

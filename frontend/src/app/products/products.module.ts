@@ -5,17 +5,21 @@ import {MatTableModule} from '@angular/material/table';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ProductsFormComponent } from './products-form/products-form.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
-    ProductsListComponent
+    ProductsListComponent,
+    ProductsFormComponent
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ]
 })
 export class ProductsModule { }
